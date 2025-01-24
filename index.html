@@ -1,12 +1,67 @@
 <!doctype html>
-<html >
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <script src="js/script1.js"></script>
-    <script src="js/script2.js"></script>
-    <script src="js/app.js"></script>
+    <script src="#script1.js"></script>
+    <script src="#script2.js"></script>
+    <script src="#app.js"></script>
   </head>
 <body>
   <h1>module4</h1>
+  <script id="script1.js">
+
+
+
+(function (window) {
+
+var helloSpeaker = {};
+var speakWord = "Hello ";
+helloSpeaker.speak = function(names) {
+    console.log(speakWord + " " + names);
+};
+
+window.helloSpeaker = helloSpeaker;
+
+}) (window);
+
+  </script>
+
+  <script id="script2.js">
+
+
+
+(function (window) {
+
+var byeSpeaker = {};
+var speakWord = "Good Bye ";
+byeSpeaker.speak = function(names) {
+    console.log(speakWord + " " + names);
+};
+
+window.byeSpeaker = byeSpeaker;
+
+}) (window);
+
+  </script>
+
+  <script id="app.js">
+
+(function () {
+    var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
+ 
+    for (var i = 0; i < names.length; i++) {
+ 
+   var firstLetter = names[i].charAt(0).toLowerCase();
+ 
+ 
+   if (firstLetter === 'j') {
+     byeSpeaker.speak(names[i]);    // Say "Good Bye"
+   } else {
+     helloSpeaker.speak(names[i]);  // Say "Hello"
+   }
+ }
+ 
+ })();
+  </script>
 </body>
 </html>
